@@ -1,13 +1,11 @@
-const path = require('path');
-const webpack = require('webpack');
-const globalVars = require('./src/css/var.js');
+const path = require('path')
+const webpack = require('webpack')
+const globalVars = require('./src/css/var.js')
 
 module.exports = {
   pages: {
     index: {
       entry: 'src/app.js',
-      template: 'index.html',
-      filename: 'index.html',
       chunks: ['chunk-vendors', 'chunk-common', 'index']
     }
   },
@@ -21,9 +19,10 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        model: path.resolve(__dirname, 'src/js/model/'),
-        js: path.resolve(__dirname, 'src/js/'),
-        components: path.resolve(__dirname, 'src/components/')
+        '@': path.resolve(__dirname, 'src/'),
+        'model': path.resolve(__dirname, 'src/js/model/'),
+        'js': path.resolve(__dirname, 'src/js/'),
+        'components': path.resolve(__dirname, 'src/components/')
       }
     },
     plugins: [
@@ -48,4 +47,4 @@ module.exports = {
     // }
     // }
   }
-};
+}

@@ -114,4 +114,16 @@ export default [{
   name: 'BaiduMap',
   component: (resolve) => require(['components/demo-components/components/baidu-map'], resolve),
   meta: { title: '百度地图' }
-}];
+}, {
+  path: '/test',
+  name: 'test',
+  component: (resolve) => require(['components/app/app-blank'], resolve),
+  children: [
+    {
+      path: '/test1',
+      name: 'test1',
+      component: (resolve) => require(['components/demo-components/account/modules/security-setting'], resolve),
+      meta: { title: '安全设置' }
+    }
+  ]
+}]

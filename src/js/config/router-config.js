@@ -1,9 +1,9 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import demoComponents from './demo-components';
-import { isAuthPage } from 'js/config/menu-config';
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import demoComponents from './demo-components'
+import { isAuthPage } from 'js/config/menu-config'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const initRouter = () => {
   const routerParam = {
@@ -55,39 +55,42 @@ const initRouter = () => {
         meta: { title: '页面找不到' }
       }]
     }]
-  };
+  }
 
-  let router = new VueRouter(routerParam);
-  let isFirstRouter = true;
+  let router = new VueRouter(routerParam)
+  let isFirstRouter = true
 
   router.beforeEach((to, from, next) => {
+    R.user.getMenu().then(res => {
+      console.log(res)
+    })
     if (!isFirstRouter && !isAuthPage(to.name)) {
-      next({ name: 'PermissionError' });
-      return;
+      next({ name: 'PermissionError' })
+      return
     }
-    HeyUI.$LoadingBar.start();
+    HeyUI.$LoadingBar.start()
     if (to.meta && to.meta.title) {
-      document.title = to.meta.title + ' - 管理应用';
+      document.title = to.meta.title + ' - 管理应用'
     } else {
-      document.title = '管理系统';
+      document.title = '管理系统'
     }
-    isFirstRouter = false;
-    next();
-  });
+    isFirstRouter = false
+    next()
+  })
   router.afterEach(() => {
-    HeyUI.$LoadingBar.success();
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-    let layoutContent = document.querySelector('.h-layout-content');
+    HeyUI.$LoadingBar.success()
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
+    let layoutContent = document.querySelector('.h-layout-content')
     if (layoutContent) {
-      layoutContent.scrollTop = 0;
+      layoutContent.scrollTop = 0
     }
     // baidu 统计，如果有自己的统计，请至index.html修改至自己的埋点
     if (window._hmt) {
-      window._hmt.push(['_trackPageview', window.location.pathname]);
+      window._hmt.push(['_trackPageview', window.location.pathname])
     }
-  });
-  return router;
-};
+  })
+  return router
+}
 
-export default initRouter;
+export default initRouter

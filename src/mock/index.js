@@ -1,9 +1,9 @@
-import users from './users';
-const Mock = require('mockjs');
+import users from './users'
+const Mock = require('mockjs')
 
 Mock.setup({
   timeout: 0 - 300
-});
+})
 
 Mock.mock('/api/account/info', 'get', {
   'status': 200,
@@ -17,7 +17,7 @@ Mock.mock('/api/account/info', 'get', {
     location: '上海市',
     tags: ['善解人意', '开朗乐观', '真诚热情', '心地善良', '谦恭有礼', '彬彬有礼', '虚怀若谷', '严于律己', '雍容大度', '热情洋溢', '从容自若', '诚挚', '温厚', '谦让', '勤恳', '耿直']
   }
-});
+})
 
 Mock.mock('/api/dict', 'get', {
   'status': 200,
@@ -31,18 +31,18 @@ Mock.mock('/api/dict', 'get', {
       '5': '樱桃'
     }
   }]
-});
+})
 
 Mock.mock('/api/login', 'post', {
   'status': 200,
   'body': {
     'value': 'test'
   }
-});
+})
 
 Mock.mock('/api/logout', 'post', {
   'status': 200
-});
+})
 
 Mock.mock('/api/home/messages', 'get', {
   'status': 200,
@@ -72,9 +72,9 @@ Mock.mock('/api/home/messages', 'get', {
     'title': '任务名称5',
     'description': '你需要在某年某月完成某某任务'
   }]
-});
+})
 
-Mock.mock('/api/management/users', 'get', { status: 200, body: users });
+Mock.mock('/api/management/users', 'get', { status: 200, body: users })
 
 Mock.mock('/api/management/roles', 'get', {
   'status': 200,
@@ -91,4 +91,21 @@ Mock.mock('/api/management/roles', 'get', {
     name: 'Leader',
     description: '可进行团队数据查看，可导出数据'
   }]
-});
+})
+
+Mock.mock('/api/user/getMenus', 'post', {
+  'status': 200,
+  'body': [{
+    path: '/test',
+    name: 'test',
+    meta: { title: '测试' },
+    children: [
+      {
+        path: '/test/test1',
+        name: 'test1',
+        component: (resolve) => require(['components/demo-components/info/detail'], resolve),
+        meta: { title: '信息详情' }
+      }
+    ]
+  }]
+})
