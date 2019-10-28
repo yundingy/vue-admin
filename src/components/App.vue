@@ -5,17 +5,17 @@
 </template>
 <script>
 
-import store from 'js/vuex/store';
+import store from 'js/vuex/store'
 
 export default {
   data() {
     return {
-    };
+    }
   },
   store,
   mounted() {
   },
   methods: {
   }
-};
+}
 </script>
