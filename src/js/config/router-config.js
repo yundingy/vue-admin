@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import demoComponents from './demo-components'
 import { isAuthPage } from 'js/config/menu-config'
 
+const _import = require('@/js/common/_import_' + process.env.NODE_ENV)// 获取组件的方法
+
 Vue.use(VueRouter)
 
 const initRouter = () => {
@@ -61,14 +63,12 @@ const initRouter = () => {
   let isFirstRouter = true
 
   router.beforeEach((to, from, next) => {
-    R.user.getMenu().then(res => {
-      console.log(res)
-    })
     if (!isFirstRouter && !isAuthPage(to.name)) {
       next({ name: 'PermissionError' })
       return
     }
     HeyUI.$LoadingBar.start()
+
     if (to.meta && to.meta.title) {
       document.title = to.meta.title + ' - 管理应用'
     } else {

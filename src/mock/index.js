@@ -103,8 +103,14 @@ Mock.mock('/api/user/getMenus', 'post', {
       {
         path: '/test/test1',
         name: 'test1',
-        component: (resolve) => require(['components/demo-components/info/detail'], resolve),
-        meta: { title: '信息详情' }
+        component: 'test/test1',
+        meta: { title: '测试1' }
+      },
+      {
+        path: '/test/test2',
+        name: 'test2',
+        component: 'test/test2',
+        meta: { title: '测试2' }
       }
     ]
   }]
