@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import demoComponents from './demo-components'
 
 import page404 from '@/components/error-pages/404'
-import appFrame from '@/components/app/app-frame'
 import appBlank from '@/components/app/app-blank'
 
 const _import = require('@/js/common/_import_' + process.env.NODE_ENV)// 获取组件的方法
@@ -22,39 +20,7 @@ const initRouter = () => {
     }, {
       path: '/',
       component: (resolve) => require(['components/app/app-frame'], resolve),
-      children: [{
-        path: '',
-        name: 'Home',
-        component: (resolve) => require(['components/home/index'], resolve),
-        meta: { title: '首页', icon: 'icon-monitor' }
-      }, {
-        path: '/system-error',
-        name: 'SystemError',
-        component: (resolve) => require(['components/error-pages/500'], resolve),
-        meta: { title: '系统错误' }
-      }, {
-        path: '/permission-error',
-        name: 'PermissionError',
-        component: (resolve) => require(['components/error-pages/403'], resolve),
-        meta: { title: '权限错误' }
-      },
-        {
-          path: '/notfound-error',
-          name: 'NotfoundError',
-          component: (resolve) => require(['components/error-pages/404'], resolve),
-          meta: { title: '页面找不到' }
-        }, {
-          path: '/authorization',
-          name: 'Authorization',
-          component: (resolve) => require(['components/management/authorization'], resolve),
-          meta: { title: '权限管理' }
-        }, {
-          path: '/users',
-          name: 'Users',
-          component: (resolve) => require(['components/management/users'], resolve),
-          meta: { title: '用户管理' }
-        },
-        ...demoComponents]
+      children: []
     }]
   }
 
@@ -73,7 +39,6 @@ const initRouter = () => {
   })
 
   router.afterEach((to, from) => {
-    console.log(router)
     if (to.meta && to.meta.title) {
       document.title = to.meta.title + ' - 管理应用'
     } else {
