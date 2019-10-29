@@ -1,4 +1,5 @@
 import users from './users'
+
 const Mock = require('mockjs')
 
 Mock.setup({
@@ -96,21 +97,49 @@ Mock.mock('/api/management/roles', 'get', {
 Mock.mock('/api/user/getMenus', 'post', {
   'status': 200,
   'body': [{
+    path: '',
+    name: 'Home',
+    component: 'home/index',
+    meta: { title: '首页', visible: 1, icon: 'icon-monitor' }
+  }, {
+    path: 'Icons',
+    name: 'Icons',
+    component: 'icons',
+    meta: { title: 'Icons', visible: 1, icon: 'icon-heart' }
+  }, {
+    path: '/List',
+    name: 'tablelist',
+    meta: { title: '列表应用', visible: 1, icon: 'icon-grid-2' },
+    children: [
+      {
+        path: '/tablelist/basic',
+        name: '/tablelist/basic',
+        component: 'table/basic',
+        meta: { title: '基础表格', visible: 1, icon: 'h-icon-search' }
+      },
+      {
+        path: '/tablelist/search',
+        name: '/tablelist/search',
+        component: 'table/search',
+        meta: { title: '查询列表', visible: 1, icon: 'h-icon-star' }
+      }
+    ]
+  }, {
     path: '/test',
     name: 'test',
-    meta: { title: '测试' },
+    meta: { title: '测试', visible: 1 },
     children: [
       {
         path: '/test/test1',
         name: 'test1',
         component: 'test/test1',
-        meta: { title: '测试1' }
+        meta: { title: '测试1', visible: 1, icon: 'h-icon-search' }
       },
       {
         path: '/test/test2',
         name: 'test2',
         component: 'test/test2',
-        meta: { title: '测试2' }
+        meta: { title: '测试2', visible: 1, icon: 'h-icon-star' }
       }
     ]
   }]
