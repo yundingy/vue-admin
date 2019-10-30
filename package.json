@@ -5,16 +5,16 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heyui/heyui-admin.git"
+    "url": "git+https://github.com/yundingy/vue-admin.git"
   },
-  "homepage": "http://admin.heyui.top/",
+  "homepage": "https://github.com/yundingy/vue-admin",
   "keywords": [
     "vue",
     "ui",
     "framework"
   ],
   "author": {
-    "name": "vvpvvp"
+    "name": "yunding"
   },
   "license": "MIT",
   "dependencies": {
