@@ -19,6 +19,7 @@ const initRouter = () => {
       component: (resolve) => require(['components/login/index'], resolve)
     }, {
       path: '/',
+      redirect: 'Home',
       component: (resolve) => require(['components/app/app-frame'], resolve),
       children: []
     }]

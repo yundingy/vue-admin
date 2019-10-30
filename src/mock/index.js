@@ -97,7 +97,7 @@ Mock.mock('/api/management/roles', 'get', {
 Mock.mock('/api/user/getMenus', 'post', {
   'status': 200,
   'body': [{
-    path: '',
+    path: 'Home',
     name: 'Home',
     component: 'home/index',
     meta: { title: '首页', visible: 1, icon: 'icon-monitor' }

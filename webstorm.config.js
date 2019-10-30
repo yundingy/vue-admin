@@ -13,7 +13,8 @@ module.exports = {
       '@': resolve('src/'),
       'model': resolve('src/js/model/'),
       'js': resolve('src/js/'),
-      'components': resolve('src/components/')
+      'components': resolve('src/components/'),
+      'views': resolve('src/views/')
     }
   }
 }

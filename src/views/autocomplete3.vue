@@ -1,5 +1,5 @@
 <style lang="less">
-  .autocomplete-complex-demos{
+  .autocomplete-complex-demos {
   }
 </style>
 <template>
@@ -17,7 +17,8 @@
           {{accountId}}/{{accountName}}
         </FormItem>
         <FormItem label="人员">
-          <AutoComplete config="account" v-model="accountId" :show="accountName" :option="{companyId: companyId,companyName: companyName}" @change="onChange1"></AutoComplete>
+          <AutoComplete config="account" v-model="accountId" :show="accountName"
+                        :option="{companyId: companyId,companyName: companyName}" @change="onChange1"></AutoComplete>
         </FormItem>
       </Form>
     </div>
@@ -25,24 +26,24 @@
 </template>
 <script>
 
-export default {
-  data() {
-    return {
-      companyId: 1,
-      companyName: '知乎',
-      accountId: 2,
-      accountName: '张三'
-    };
-  },
-  methods: {
-    onChange(data, trigger) {
-      this.companyName = data.title;
-      this.accountId = null;
-      this.accountName = null;
+  export default {
+    data() {
+      return {
+        companyId: 1,
+        companyName: '知乎',
+        accountId: 2,
+        accountName: '张三'
+      }
     },
-    onChange1(data, trigger) {
-      this.accountName = data.title;
+    methods: {
+      onChange(data, trigger) {
+        this.companyName = data.title
+        this.accountId = null
+        this.accountName = null
+      },
+      onChange1(data, trigger) {
+        this.accountName = data.title
+      }
     }
   }
-};
 </script>
