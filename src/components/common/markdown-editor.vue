@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import marked from 'marked';
+import marked from 'marked'
 
 export default {
   props: {
@@ -44,26 +44,26 @@ export default {
     return {
       html: '',
       editValue: ''
-    };
+    }
   },
   watch: {
     'value': function (newVal, oldVal) {
       if (newVal !== oldVal) {
-        this.parse();
+        this.parse()
       }
     }
   },
   mounted() {
-    this.parse();
+    this.parse()
   },
   methods: {
     parse() {
-      this.editValue = this.value;
-      this.html = marked(this.value);
+      this.editValue = this.value
+      this.html = marked(this.value)
     },
     change() {
-      this.$emit('input', this.editValue);
+      this.$emit('input', this.editValue)
     }
   }
-};
+}
 </script>

@@ -1,6 +1,6 @@
 <style lang='less'>
-.account-vue {
-}
+  .account-vue {
+  }
 </style>
 <template>
   <div class="account-vue frame-page">
@@ -20,35 +20,35 @@
   </div>
 </template>
 <script>
-import AccountInfoEdit from './modules/account-info-edit';
-import AccountInfoShow from './modules/account-info-show';
-import { mapState } from 'vuex';
+  import AccountInfoEdit from './modules/account-info-edit'
+  import AccountInfoShow from './modules/account-info-show'
+  import { mapState } from 'vuex'
 
-export default {
-  components: {
-    AccountInfoEdit,
-    AccountInfoShow
-  },
-  data() {
-    return {
-      tabs: {
-        info: '基本设置'
-      },
-      tab: 'info'
-    };
-  },
-  mounted() {
-    this.init();
-  },
-  methods: {
-    init() {
+  export default {
+    components: {
+      AccountInfoEdit,
+      AccountInfoShow
+    },
+    data() {
+      return {
+        tabs: {
+          info: '基本设置'
+        },
+        tab: 'info'
+      }
+    },
+    mounted() {
+      this.init()
+    },
+    methods: {
+      init() {
 
+      }
+    },
+    computed: {
+      ...mapState({
+        account: 'User'
+      })
     }
-  },
-  computed: {
-    ...mapState({
-      account: 'User'
-    })
   }
-};
 </script>

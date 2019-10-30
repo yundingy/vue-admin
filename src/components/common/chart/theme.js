@@ -494,4 +494,4 @@ export default {
       }
     }
   }
-};
+}

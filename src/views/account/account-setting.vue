@@ -1,7 +1,7 @@
 <style lang='less'>
-.account-setting-vue {
+  .account-setting-vue {
 
-}
+  }
 </style>
 <template>
   <div class="account-setting-vue frame-page frame-flex-page h-panel">
@@ -14,28 +14,26 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      menus: [{
-        title: '安全设置',
-        key: 'SecuritySetting'
-      }, {
-        title: '通知设置',
-        key: 'NoticeSetting'
-      }]
-    };
-  },
-  mounted() {
-    this.init();
-  },
-  methods: {
-    init() {
+  export default {
+    data() {
+      return {
+        menus: [{
+          title: '安全设置',
+          key: 'SecuritySetting'
+        }, {
+          title: '通知设置',
+          key: 'NoticeSetting'
+        }]
+      }
+    },
+    mounted() {
+      this.init()
+    },
+    methods: {
+      init() {
 
-    }
-  },
-  computed: {
-
+      }
+    },
+    computed: {}
   }
-};
 </script>

@@ -41,29 +41,28 @@
 </template>
 <script>
 
-import data1 from './datas/data1';
-import data2 from './datas/data2';
-import data3 from './datas/data3';
-import data4 from './datas/data4';
-export default {
-  data() {
-    return {
-      data1,
-      data2,
-      data3,
-      data4
-    };
-  },
-  mounted() {
-    this.init();
-  },
-  methods: {
-    init() {
+  import data1 from './datas/data1'
+  import data2 from './datas/data2'
+  import data3 from './datas/data3'
+  import data4 from './datas/data4'
 
-    }
-  },
-  computed: {
+  export default {
+    data() {
+      return {
+        data1,
+        data2,
+        data3,
+        data4
+      }
+    },
+    mounted() {
+      this.init()
+    },
+    methods: {
+      init() {
 
+      }
+    },
+    computed: {}
   }
-};
 </script>

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import debounce from 'lodash.debounce';
+import debounce from 'lodash.debounce'
 
 /** index.simple 包含以下四种图表
   require("./lib/chart/line");
@@ -18,8 +18,8 @@ import debounce from 'lodash.debounce';
   require("./lib/chart/pie");
   require("./lib/component/gridSimple");
  */
-import echarts from 'echarts/index.simple';
-import theme from './theme';
+import echarts from 'echarts/index.simple'
+import theme from './theme'
 
 export default {
   props: {
@@ -35,38 +35,38 @@ export default {
   data() {
     return {
       chart: null
-    };
+    }
   },
   mounted() {
-    this.init();
+    this.init()
   },
   watch: {
     options() {
-      this.chart.setOption(this.options);
+      this.chart.setOption(this.options)
     }
   },
   methods: {
     init() {
-      let chart = this.chart = echarts.init(this.$el, theme, this.initOption);
-      this.chart.setOption(this.options);
+      let chart = this.chart = echarts.init(this.$el, theme, this.initOption)
+      this.chart.setOption(this.options)
 
       this.resizeHanlder = debounce(() => {
-        chart.resize();
-      }, 100, { leading: true });
-      window.addEventListener('resize', this.resizeHanlder);
+        chart.resize()
+      }, 100, { leading: true })
+      window.addEventListener('resize', this.resizeHanlder)
       this.listener = G.addlistener('page_resize', () => {
-        chart.resize();
-      });
+        chart.resize()
+      })
     }
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.resizeHanlder);
-    G.removelistener(this.listener);
-    this.chart.dispose();
-    this.chart = null;
+    window.removeEventListener('resize', this.resizeHanlder)
+    G.removelistener(this.listener)
+    this.chart.dispose()
+    this.chart = null
   },
   computed: {
 
   }
-};
+}
 </script>

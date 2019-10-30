@@ -7,7 +7,7 @@
   <div class="baidu-map-vue" :style="mapStyle"></div>
 </template>
 <script>
-import load from './load';
+import load from './load'
 
 export default {
   props: {
@@ -18,31 +18,31 @@ export default {
   },
   data() {
     return {
-    };
+    }
   },
   mounted() {
     if (typeof BMap != 'undefined') {
-      this.init();
+      this.init()
     } else {
       load().then(resp => {
-        this.init();
-      });
+        this.init()
+      })
     }
   },
   methods: {
     init() {
       this.$nextTick(() => {
-        let map = new BMap.Map(this.$el);
-        this.$emit('load', map);
-      });
+        let map = new BMap.Map(this.$el)
+        this.$emit('load', map)
+      })
     }
   },
   computed: {
     mapStyle() {
       return {
         height: `${this.height}px`
-      };
+      }
     }
   }
-};
+}
 </script>

@@ -14,27 +14,25 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      value: 'let a = 1;',
-      mode: 'javascript',
-      datas: ['javascript', 'sql', 'markdown']
-    };
-  },
-  mounted() {
-  },
-  methods: {
-    change() {
-      this.value = {
-        javascript: 'let a = 1;',
-        sql: 'select * from user',
-        markdown: '# title'
-      }[this.mode];
-    }
-  },
-  computed: {
-
+  export default {
+    data() {
+      return {
+        value: 'let a = 1;',
+        mode: 'javascript',
+        datas: ['javascript', 'sql', 'markdown']
+      }
+    },
+    mounted() {
+    },
+    methods: {
+      change() {
+        this.value = {
+          javascript: 'let a = 1;',
+          sql: 'select * from user',
+          markdown: '# title'
+        }[this.mode]
+      }
+    },
+    computed: {}
   }
-};
 </script>

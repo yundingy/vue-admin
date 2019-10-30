@@ -15,24 +15,22 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      value: '<p><i>测试</i></p>'
-    };
-  },
-  mounted() {
-  },
-  methods: {
-    update() {
-      this.value = '<p><i>更新</i></p>';
+  export default {
+    data() {
+      return {
+        value: '<p><i>测试</i></p>'
+      }
     },
-    clear() {
-      this.value = null;
-    }
-  },
-  computed: {
-
+    mounted() {
+    },
+    methods: {
+      update() {
+        this.value = '<p><i>更新</i></p>'
+      },
+      clear() {
+        this.value = null
+      }
+    },
+    computed: {}
   }
-};
 </script>

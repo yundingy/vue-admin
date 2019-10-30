@@ -64,14 +64,14 @@ export default {
   },
   data() {
     return {
-    };
+    }
   },
   mounted() {
   },
   methods: {
     copySetting() {
-      this.$Clipboard({ text: JSON.stringify(this.layoutConfig, null, 2), showSuccessTip: '复制成功' });
+      this.$Clipboard({ text: JSON.stringify(this.layoutConfig, null, 2), showSuccessTip: '复制成功' })
     }
   }
-};
+}
 </script>

@@ -55,60 +55,60 @@ export default {
   data() {
     return {
 
-    };
+    }
   },
   mounted() {
   },
   methods: {
     isSelected(data) {
       if (this.range) {
-        return data.max == this.nowValue.max && data.min == this.nowValue.min;
+        return data.max == this.nowValue.max && data.min == this.nowValue.min
       } else if (this.multiple) {
-        return this.nowValue.indexOf(data.key) > -1;
+        return this.nowValue.indexOf(data.key) > -1
       } else {
-        return this.nowValue == data.key;
+        return this.nowValue == data.key
       }
     },
     change(data) {
-      let result = null;
+      let result = null
       if (this.range) {
-        result = { max: data.max, min: data.min };
+        result = { max: data.max, min: data.min }
       } else if (this.multiple) {
-        result = Utils.copy(this.nowValue);
-        Utils.toggleValue(result, data.key);
+        result = Utils.copy(this.nowValue)
+        Utils.toggleValue(result, data.key)
       } else {
-        result = data.key;
+        result = data.key
       }
-      this.setvalue(result);
+      this.setvalue(result)
     },
     clear() {
       if (this.range) {
-        this.setvalue({ min: null, max: null });
+        this.setvalue({ min: null, max: null })
       } else if (this.multiple) {
-        this.setvalue([]);
+        this.setvalue([])
       } else {
-        this.setvalue(null);
+        this.setvalue(null)
       }
     },
     setvalue(data) {
-      let value = Utils.copy(this.value);
-      value[this.prop] = data;
-      this.$emit('input', value);
+      let value = Utils.copy(this.value)
+      value[this.prop] = data
+      this.$emit('input', value)
     }
   },
   computed: {
     isEmpty() {
       if (this.range) {
-        return !this.nowValue.max && !this.nowValue.min;
+        return !this.nowValue.max && !this.nowValue.min
       } else if (this.multiple) {
-        return !this.nowValue || this.nowValue.length == 0;
+        return !this.nowValue || this.nowValue.length == 0
       } else {
-        return !this.nowValue;
+        return !this.nowValue
       }
     },
     nowValue() {
-      return this.value[this.prop];
+      return this.value[this.prop]
     }
   }
-};
+}
 </script>

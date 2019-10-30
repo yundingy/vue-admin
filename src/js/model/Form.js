@@ -24,4 +24,3 @@ export default new Model({
   inputs: [],
   things: ['']
 })
-;

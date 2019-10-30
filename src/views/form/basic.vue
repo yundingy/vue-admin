@@ -6,22 +6,18 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
+  export default {
+    data() {
+      return {}
+    },
+    mounted() {
+      this.init()
+    },
+    methods: {
+      init() {
 
-    };
-  },
-  mounted() {
-    this.init();
-  },
-  methods: {
-    init() {
-
-    }
-  },
-  computed: {
-
+      }
+    },
+    computed: {}
   }
-};
 </script>

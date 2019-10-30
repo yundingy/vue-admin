@@ -16,10 +16,10 @@ export default {
   data() {
     return {
 
-    };
+    }
   },
   mounted() {
-    this.init();
+    this.init()
   },
   methods: {
     init() {
@@ -29,5 +29,5 @@ export default {
   computed: {
 
   }
-};
+}
 </script>

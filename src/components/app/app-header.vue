@@ -108,8 +108,8 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex';
-import appHeaderMessage from './modules/app-header-message';
+import { mapState } from 'vuex'
+import appHeaderMessage from './modules/app-header-message'
 
 export default {
   components: {
@@ -122,58 +122,58 @@ export default {
         { key: 'info', title: '个人信息', icon: 'h-icon-user' },
         { key: 'logout', title: '退出登录', icon: 'h-icon-outbox' }
       ]
-    };
+    }
   },
   computed: {
     ...mapState(['User']),
     siderCollapsed: {
       get() {
-        return this.$store.state.siderCollapsed;
+        return this.$store.state.siderCollapsed
       },
       set(value) {
-        this.$store.commit('updateSiderCollapse', value);
+        this.$store.commit('updateSiderCollapse', value)
       }
     }
   },
   mounted() {
-    this.listenResize();
+    this.listenResize()
   },
   methods: {
     listenResize() {
-      let windowWidth = window.innerWidth;
+      let windowWidth = window.innerWidth
       const resizeEvent = window.addEventListener('resize', () => {
         if (windowWidth == window.innerWidth) {
-          return;
+          return
         }
         if (this.siderCollapsed && window.innerWidth > 900) {
-          this.siderCollapsed = false;
+          this.siderCollapsed = false
         } else if (!this.siderCollapsed && window.innerWidth < 900) {
-          this.siderCollapsed = true;
+          this.siderCollapsed = true
         }
-        windowWidth = window.innerWidth;
-      });
+        windowWidth = window.innerWidth
+      })
       this.$once('hook:beforeDestroy', () => {
-        window.removeEventListener('resize', resizeEvent);
-      });
-      window.dispatchEvent(new Event('resize'));
+        window.removeEventListener('resize', resizeEvent)
+      })
+      window.dispatchEvent(new Event('resize'))
     },
     goGithub() {
-      window.open('https://github.com/heyui/heyui-admin');
+      window.open('https://github.com/heyui/heyui-admin')
     },
     goBook() {
-      window.open('https://heyui.github.io/heyui-admin-docs');
+      window.open('https://heyui.github.io/heyui-admin-docs')
     },
     trigger(data) {
       if (data == 'logout') {
-        Utils.removeLocal('token');
-        this.$router.replace({ name: 'Login' });
+        Utils.removeLocal('token')
+        this.$router.replace({ name: 'Login' })
       } else {
-        this.$router.push({ name: 'AccountBasic' });
+        this.$router.push({ name: 'AccountBasic' })
       }
     },
     showSettingModal() {
-      this.$emit('openSetting');
+      this.$emit('openSetting')
     }
   }
-};
+}
 </script>

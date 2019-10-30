@@ -19,7 +19,7 @@ let list = [
   { id: 31, title: '三级-1', parent: '3' },
   { id: 32, title: '三级-2', parent: '3' },
   { id: 33, title: '三级-3', parent: '3' }
-];
+]
 export default function () {
   return {
     simple: {
@@ -29,8 +29,8 @@ export default function () {
       titleName: 'title',
       dataMode: 'list',
       datas() {
-        return list;
+        return list
       }
     }
-  };
+  }
 };

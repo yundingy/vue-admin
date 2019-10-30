@@ -1,3 +1,3 @@
-import SysTabs from './sys-tabs';
+import SysTabs from './sys-tabs'
 
-export default SysTabs;
+export default SysTabs

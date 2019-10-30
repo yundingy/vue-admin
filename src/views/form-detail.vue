@@ -1,26 +1,31 @@
 <style lang="less">
-.form-detail-vue {
-  .h-panel-body {
-    padding-right: 60px;
-  }
-  .info-basic {
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-  .info-table {
-    margin-top: 30px;
-    .h-tabs {
-      margin-bottom: 20px;
+  .form-detail-vue {
+    .h-panel-body {
+      padding-right: 60px;
+    }
+
+    .info-basic {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .info-table {
+      margin-top: 30px;
+
+      .h-tabs {
+        margin-bottom: 20px;
+      }
+    }
+
+    .info-title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .table-wrapper {
+      padding: 0 20px;
     }
   }
-  .info-title {
-    font-size: 16px;
-    font-weight: bold;
-  }
-  .table-wrapper {
-    padding: 0 20px;
-  }
-}
 </style>
 
 <template>
@@ -106,37 +111,79 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      tabConfig: {
-        module1: '操作类型一',
-        module2: '操作类型二'
-      },
-      selectedTab: 'module1',
-      columns: [
-        { title: '操作类型', prop: 'operateType' },
-        { title: '操作人', prop: 'operateBy' },
-        { title: '执行结果', prop: 'operateResult' },
-        { title: '操作时间', prop: 'operateTime' },
-        { title: '备注', prop: 'remark' }
-      ],
-      datas: [
-        { id: 1, operateType: '订购关系生效', operateBy: '张三', operateResult: '成功', operateTime: '2019-02-14 13:27:12', remark: '-' },
-        { id: 2, operateType: '财务复审', operateBy: '李四', operateResult: '驳回', operateTime: '2019-02-14 13:27:12', remark: '不通过原因' },
-        { id: 3, operateType: '部门初审', operateBy: '李四', operateResult: '成功', operateTime: '2019-02-14 13:27:12', remark: '-' },
-        { id: 4, operateType: '提交订单', operateBy: '王五', operateResult: '成功', operateTime: '2019-02-14 13:27:12', remark: '很好' },
-        { id: 5, operateType: '创建订单', operateBy: '王五', operateResult: '成功', operateTime: '2019-02-14 13:27:12', remark: '-' }
-      ],
-      datas2: [
-        { id: 5, operateType: '创建订单', operateBy: '王五', operateResult: '成功', operateTime: '2019-02-14 13:27:12', remark: '-' }
-      ]
-    };
-  },
-  methods: {
-    tabChanged(data) {
-      this.$Message.info(`切换至${data.title}`, 1000);
+  export default {
+    data() {
+      return {
+        tabConfig: {
+          module1: '操作类型一',
+          module2: '操作类型二'
+        },
+        selectedTab: 'module1',
+        columns: [
+          { title: '操作类型', prop: 'operateType' },
+          { title: '操作人', prop: 'operateBy' },
+          { title: '执行结果', prop: 'operateResult' },
+          { title: '操作时间', prop: 'operateTime' },
+          { title: '备注', prop: 'remark' }
+        ],
+        datas: [
+          {
+            id: 1,
+            operateType: '订购关系生效',
+            operateBy: '张三',
+            operateResult: '成功',
+            operateTime: '2019-02-14 13:27:12',
+            remark: '-'
+          },
+          {
+            id: 2,
+            operateType: '财务复审',
+            operateBy: '李四',
+            operateResult: '驳回',
+            operateTime: '2019-02-14 13:27:12',
+            remark: '不通过原因'
+          },
+          {
+            id: 3,
+            operateType: '部门初审',
+            operateBy: '李四',
+            operateResult: '成功',
+            operateTime: '2019-02-14 13:27:12',
+            remark: '-'
+          },
+          {
+            id: 4,
+            operateType: '提交订单',
+            operateBy: '王五',
+            operateResult: '成功',
+            operateTime: '2019-02-14 13:27:12',
+            remark: '很好'
+          },
+          {
+            id: 5,
+            operateType: '创建订单',
+            operateBy: '王五',
+            operateResult: '成功',
+            operateTime: '2019-02-14 13:27:12',
+            remark: '-'
+          }
+        ],
+        datas2: [
+          {
+            id: 5,
+            operateType: '创建订单',
+            operateBy: '王五',
+            operateResult: '成功',
+            operateTime: '2019-02-14 13:27:12',
+            remark: '-'
+          }
+        ]
+      }
+    },
+    methods: {
+      tabChanged(data) {
+        this.$Message.info(`切换至${data.title}`, 1000)
+      }
     }
   }
-};
 </script>

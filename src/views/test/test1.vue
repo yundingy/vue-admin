@@ -1,12 +1,15 @@
 <template>
-    <div>
-      <button class="h-btn" @click="opened=true">Vue调用Modal</button>
-      <Modal v-model="opened" draggable="true">
-        <div slot="header">Vue</div>
-        <div >这是使用vue调用的弹出框</div>
-        <div slot="footer"><button class="h-btn" @click="opened=false">取消</button></div>
-      </Modal>
-    </div>
+  <div>
+    <button class="h-btn" @click="opened=true">Vue调用Modal</button>
+    <button class="h-btn" @click="openModal">js调用Modal</button>
+    <Modal v-model="opened" draggable="true">
+      <div slot="header">Vue</div>
+      <div>这是使用vue调用的弹出框</div>
+      <div slot="footer">
+        <button class="h-btn" @click="opened=false">取消</button>
+      </div>
+    </Modal>
+  </div>
 </template>
 
 <script>
@@ -15,6 +18,14 @@
     data() {
       return {
         opened: false
+      }
+    },
+    methods: {
+      openModal() {
+        this.$Modal({
+          title: 'Js',
+          content: '这是使用Js调用的弹出框'
+        })
       }
     }
   }

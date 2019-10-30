@@ -179,7 +179,7 @@
 </template>
 
 <script>
-import { showTitle, routeEqual, isExsit } from './utils';
+import { showTitle, routeEqual, isExsit } from './utils'
 export default {
   name: 'TagsNav',
   props: {
@@ -194,121 +194,121 @@ export default {
       nowIndex: null,
       tagList: [],
       menus: {}
-    };
+    }
   },
   computed: {
     currentRouteObj() {
-      const { name, params, query } = this.$route;
-      return { name, params, query };
+      const { name, params, query } = this.$route
+      return { name, params, query }
     }
   },
   methods: {
     show(event) {
-      log(event);
-      let parent = event.target.parentNode;
-      this.nowIndex = parent.getAttribute('index') || parent.parentNode.getAttribute('index');
+      log(event)
+      let parent = event.target.parentNode
+      this.nowIndex = parent.getAttribute('index') || parent.parentNode.getAttribute('index')
       if (this.nowIndex == null) {
         this.menus = {
           closeAll: '关闭所有标签页'
-        };
+        }
       } else {
         this.menus = {
           closeSelf: '关闭标签页',
           closeOther: '关闭其他标签页',
           closeAll: '关闭所有标签页'
-        };
+        }
       }
     },
     trigger(key, data, event) {
       if (key == 'closeAll') {
-        this.clearTab();
+        this.clearTab()
       } else if (this.nowIndex) {
-        let item = this.tagList[this.nowIndex];
+        let item = this.tagList[this.nowIndex]
         if (key == 'closeOther') {
-          this.closeOtherTab(item, this.nowIndex);
+          this.closeOtherTab(item, this.nowIndex)
         } else if (key == 'closeSelf') {
-          this.close(item);
+          this.close(item)
         }
       }
     },
     init() {
-      this.tagList = Utils.getLocal2Json('SYS_TABS') || [];
-      this.gotoTab(this.$route);
+      this.tagList = Utils.getLocal2Json('SYS_TABS') || []
+      this.gotoTab(this.$route)
     },
     beforeClose() {
-      return this.$Confirm('确定要关闭这一页吗');
+      return this.$Confirm('确定要关闭这一页吗')
     },
     handleClose(item) {
       if (item.meta && item.meta.beforeCloseName) {
         return new Promise(this.beforeClose[item.meta.beforeCloseName]).then(close => {
           if (close) {
-            this.close(item);
+            this.close(item)
           }
-        });
+        })
       } else {
-        this.close(item);
+        this.close(item)
       }
     },
     close(item) {
-      let index = this.tagList.indexOf(item);
-      this.tagList.splice(index, 1);
-      let newroute = null;
+      let index = this.tagList.indexOf(item)
+      this.tagList.splice(index, 1)
+      let newroute = null
       if (this.isCurrentTab(item)) {
         if (this.tagList.length > index) {
-          newroute = this.tagList[index];
+          newroute = this.tagList[index]
         } else if (this.tagList.length > 0) {
-          newroute = this.tagList[index - 1];
+          newroute = this.tagList[index - 1]
         } else {
-          this.$router.replace({ name: this.homePage });
+          this.$router.replace({ name: this.homePage })
         }
-        if (newroute) this.$router.replace(newroute);
+        if (newroute) this.$router.replace(newroute)
       }
-      this.saveLocal();
+      this.saveLocal()
     },
     handleClick(item) {
-      this.$router.push(item);
+      this.$router.push(item)
     },
     showTitleInside(item) {
-      return showTitle(item, this);
+      return showTitle(item, this)
     },
     isCurrentTab(item) {
-      return routeEqual(this.currentRouteObj, item);
+      return routeEqual(this.currentRouteObj, item)
     },
     gotoTab(item) {
-      if (!item.name) return;
-      const { name, query, params, meta } = item;
-      let routeObj = { name, query, params, meta: meta || {} };
+      if (!item.name) return
+      const { name, query, params, meta } = item
+      let routeObj = { name, query, params, meta: meta || {} }
       if (!isExsit(routeObj, this.tagList)) {
-        this.tagList.push(routeObj);
-        this.saveLocal();
+        this.tagList.push(routeObj)
+        this.saveLocal()
       }
     },
     closeOtherTab(item, index) {
       if (!this.isCurrentTab(item)) {
-        this.$router.push(item);
+        this.$router.push(item)
       }
-      this.tagList.splice(0, index);
-      this.tagList.splice(1);
-      this.saveLocal();
+      this.tagList.splice(0, index)
+      this.tagList.splice(1)
+      this.saveLocal()
     },
     clearTab() {
-      this.tagList = [];
-      this.saveLocal();
+      this.tagList = []
+      this.saveLocal()
       if (!this.isCurrentTab({ name: this.homePage })) {
-        this.$router.push({ name: this.homePage });
+        this.$router.push({ name: this.homePage })
       }
     },
     saveLocal() {
-      Utils.saveLocal('SYS_TABS', this.tagList);
+      Utils.saveLocal('SYS_TABS', this.tagList)
     }
   },
   mounted() {
-    this.init();
+    this.init()
   },
   watch: {
     $route(to) {
-      this.gotoTab(to);
+      this.gotoTab(to)
     }
   }
-};
+}
 </script>

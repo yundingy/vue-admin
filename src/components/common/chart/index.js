@@ -1,5 +1,5 @@
-import ECharts from './echarts';
+import ECharts from './echarts'
 
-require('echarts/lib/component/tooltip');
+require('echarts/lib/component/tooltip')
 
-export default ECharts;
+export default ECharts

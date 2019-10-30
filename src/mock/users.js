@@ -62,4 +62,4 @@ export default [
   { id: '9.6', name: '日轮', parent: '9' },
   { id: '9.7', name: '晴太', parent: '9' },
   { id: '9.8', name: '白血球', parent: '9' }
-];
+]

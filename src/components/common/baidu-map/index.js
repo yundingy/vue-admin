@@ -1,3 +1,3 @@
-import BaiduMap from './baidu-map';
+import BaiduMap from './baidu-map'
 
-export default BaiduMap;
+export default BaiduMap

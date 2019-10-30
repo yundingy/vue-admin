@@ -120,25 +120,25 @@ export default {
   editorProps: {
     type: Object,
     default: function () {
-      return { $blockScrolling: true };
+      return { $blockScrolling: true }
     }
   },
   setOptions: {
     type: Object,
     default: function () {
-      return {};
+      return {}
     }
   },
   styles: {
     type: Object,
     default: function () {
-      return {};
+      return {}
     }
   },
   scrollMargin: {
     type: Array,
     default: function () {
-      return [ 0, 0, 0, 0 ];
+      return [ 0, 0, 0, 0 ]
     }
   },
   annotations: {
@@ -165,4 +165,4 @@ export default {
   commands: {
     type: Array
   }
-};
+}

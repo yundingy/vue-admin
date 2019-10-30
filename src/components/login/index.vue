@@ -130,29 +130,29 @@
 </template>
 <script>
 
-import Login from 'model/login/Login';
+import Login from 'model/login/Login'
 
 export default {
   data() {
     return {
       login: Login.parse({}),
       loading: false
-    };
+    }
   },
   mounted() {
   },
   methods: {
     submit() {
-      this.loading = true;
+      this.loading = true
       R.Login.login(Login.dispose(this.login)).then(resp => {
         if (resp.ok) {
-          let msg = resp.body;
-          Utils.saveLocal('token', msg.value);
-          window.location = '/';
+          let msg = resp.body
+          Utils.saveLocal('token', msg.value)
+          window.location = '/'
         }
-        this.loading = false;
-      });
+        this.loading = false
+      })
     }
   }
-};
+}
 </script>

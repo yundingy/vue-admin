@@ -54,4 +54,4 @@ export default [
     id: 7,
     name: '阿里巴巴12'
   }
-];
+]
