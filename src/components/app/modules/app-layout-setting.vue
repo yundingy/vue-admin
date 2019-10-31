@@ -66,7 +66,7 @@
 </template>
 <script>
   import ColorPicker from 'heyui/lib/components/color-picker'
-  import less from 'less'
+  import { updateTheme } from '@/components/app/modules/setting'
   export default {
     components: {
       ColorPicker
@@ -86,16 +86,8 @@
         this.$Clipboard({ text: JSON.stringify(this.layoutConfig, null, 2), showSuccessTip: '复制成功' })
       },
       changeColor(color) {
-        less
-          .modifyVars({
-            '@primary-color': color
-          })
-          .then(() => {
-            console.log('success')
-          })
-          .catch(() => {
-            console.log('fail')
-          })
+        updateTheme(color)
+        this.themeColor = color
       }
     }
   }

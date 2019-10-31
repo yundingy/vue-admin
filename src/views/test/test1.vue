@@ -9,6 +9,9 @@
         <button class="h-btn" @click="opened=false">取消</button>
       </div>
     </Modal>
+    <div class="aaa">
+
+    </div>
   </div>
 </template>
 
@@ -32,6 +35,9 @@
   }
 </script>
 
-<style scoped>
-
+<style scoped lang="less">
+  .aaa{
+    width: 100px;
+    height: 100px;
+  }
 </style>
