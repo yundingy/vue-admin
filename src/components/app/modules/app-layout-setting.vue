@@ -1,33 +1,38 @@
 <style lang="less">
-.app-layout-setting-vue {
-  width: 300px;
-  .h-panel-body {
-    padding: 15px;
-  }
-  .alert-warning {
-    border: 1px solid #ffe58f;
-    background-color: #fffbe6;
-    line-height: 1.5;
-    font-size: 12px;
-    color: rgba(0,0,0,.65);
-    box-sizing: border-box;
-    margin: 0;
-    list-style: none;
-    position: relative;
-    padding: 10px 20px;
-    border-radius: 4px;
-    margin-top: 16px;
-  }
-  .setting-form {
-    margin: 0 0 0 -15px;
-    .h-form-item{
-      margin-bottom: 10px;
+  .app-layout-setting-vue {
+    width: 300px;
+
+    .h-panel-body {
+      padding: 15px;
     }
-    .h-form-item-wrap {
-      float: right;
+
+    .alert-warning {
+      border: 1px solid #ffe58f;
+      background-color: #fffbe6;
+      line-height: 1.5;
+      font-size: 12px;
+      color: rgba(0, 0, 0, .65);
+      box-sizing: border-box;
+      margin: 0;
+      list-style: none;
+      position: relative;
+      padding: 10px 20px;
+      border-radius: 4px;
+      margin-top: 16px;
+    }
+
+    .setting-form {
+      margin: 0 0 0 -15px;
+
+      .h-form-item {
+        margin-bottom: 10px;
+      }
+
+      .h-form-item-wrap {
+        float: right;
+      }
     }
   }
-}
 </style>
 
 <template>
@@ -48,6 +53,9 @@
           <FormItem label="开启多Tab">
             <h-switch small v-model="layoutConfig.showSystab"></h-switch>
           </FormItem>
+          <FormItem label="主题色">
+            <color-picker v-model="themeColor" :useConfirm="true" @change="changeColor"></color-picker>
+          </FormItem>
           <p class="dark-color font13" style="padding: 10px 15px;">开启多Tab后，在 app-frame 中打开 keep-alive 才能开启页面缓存</p>
         </Form>
         <Button block @click="copySetting">复制配置</Button>
@@ -57,21 +65,38 @@
   </div>
 </template>
 <script>
-
-export default {
-  props: {
-    layoutConfig: Object
-  },
-  data() {
-    return {
-    }
-  },
-  mounted() {
-  },
-  methods: {
-    copySetting() {
-      this.$Clipboard({ text: JSON.stringify(this.layoutConfig, null, 2), showSuccessTip: '复制成功' })
+  import ColorPicker from 'heyui/lib/components/color-picker'
+  import less from 'less'
+  export default {
+    components: {
+      ColorPicker
+    },
+    props: {
+      layoutConfig: Object
+    },
+    data() {
+      return {
+        themeColor: ''
+      }
+    },
+    mounted() {
+    },
+    methods: {
+      copySetting() {
+        this.$Clipboard({ text: JSON.stringify(this.layoutConfig, null, 2), showSuccessTip: '复制成功' })
+      },
+      changeColor(color) {
+        less
+          .modifyVars({
+            '@primary-color': color
+          })
+          .then(() => {
+            console.log('success')
+          })
+          .catch(() => {
+            console.log('fail')
+          })
+      }
     }
   }
-}
 </script>

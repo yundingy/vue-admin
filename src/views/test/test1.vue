@@ -24,7 +24,8 @@
       openModal() {
         this.$Modal({
           title: 'Js',
-          content: '这是使用Js调用的弹出框'
+          content: '这是使用Js调用的弹出框',
+          draggable: true
         })
       }
     }

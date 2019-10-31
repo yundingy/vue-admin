@@ -1,4 +1,4 @@
-const vars = require('heyui/themes/var.js');
+const vars = require('heyui/themes/var.js')
 Object.assign(vars, {
   'primary-color': '#3788ee',
   'link-color': '#3788ee',
@@ -14,5 +14,5 @@ Object.assign(vars, {
   'menu-dark-color': '#001529',
   'menu-white-background-color': '#ecf8f2',
   'sys-tabs-height': '45px'
-});
-module.exports = vars;
+})
+module.exports = vars
