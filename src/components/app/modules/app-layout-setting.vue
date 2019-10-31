@@ -53,9 +53,6 @@
           <FormItem label="开启多Tab">
             <h-switch small v-model="layoutConfig.showSystab"></h-switch>
           </FormItem>
-          <FormItem label="主题色">
-            <color-picker v-model="themeColor" :useConfirm="true" @change="changeColor"></color-picker>
-          </FormItem>
           <p class="dark-color font13" style="padding: 10px 15px;">开启多Tab后，在 app-frame 中打开 keep-alive 才能开启页面缓存</p>
         </Form>
         <Button block @click="copySetting">复制配置</Button>
@@ -65,12 +62,7 @@
   </div>
 </template>
 <script>
-  import ColorPicker from 'heyui/lib/components/color-picker'
-  import { updateTheme } from '@/components/app/modules/setting'
   export default {
-    components: {
-      ColorPicker
-    },
     props: {
       layoutConfig: Object
     },
@@ -84,10 +76,6 @@
     methods: {
       copySetting() {
         this.$Clipboard({ text: JSON.stringify(this.layoutConfig, null, 2), showSuccessTip: '复制成功' })
-      },
-      changeColor(color) {
-        updateTheme(color)
-        this.themeColor = color
       }
     }
   }
