@@ -1,8 +1,16 @@
 const path = require('path')
 const webpack = require('webpack')
 const globalVars = require('./src/css/var.js')
+const CompressionPlugin = require('compression-webpack-plugin')
+
+const basePath = {
+  dev: '/',
+  pro: '/zhxfz_web'
+}
 
 module.exports = {
+  publicPath: process.env.NODE_ENV === 'development' ? basePath.dev : basePath.pro,
+  productionSourceMap: process.env.NODE_ENV === 'development',
   pages: {
     index: {
       entry: 'src/app.js',
@@ -35,6 +43,11 @@ module.exports = {
         G: 'hey-global',
         log: 'hey-log',
         R: [path.resolve(__dirname, 'src/js/common/request'), 'default']
+      }),
+      new CompressionPlugin({
+        test: /\.js$|\.html$|.\css$|/, // 匹配文件名
+        threshold: 10240, // 对超过10k的数据压缩
+        deleteOriginalAssets: false // 不删除源文件
       })
     ]
   },
