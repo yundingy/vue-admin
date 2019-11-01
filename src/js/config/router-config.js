@@ -12,7 +12,7 @@ Vue.use(VueRouter)
 
 const initRouter = () => {
   const routerParam = {
-    mode: 'history',
+    mode: 'hash',
     routes: [{
       path: '/login',
       name: 'Login',
