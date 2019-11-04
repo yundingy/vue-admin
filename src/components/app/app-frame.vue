@@ -38,7 +38,6 @@ import appFooter from './app-footer'
 import SysTabs from '../common/sys-tabs'
 import store from 'js/vuex/store'
 import { mapState } from 'vuex'
-import { fullMenuKeys, isAuthPage } from 'js/config/menu-config'
 
 export default {
   data() {
@@ -103,12 +102,12 @@ export default {
       //     this.menuSelect();
       //   }
       // });
-      let menus = Utils.getLocal2Json('SYS_CONFIG_MENU') || fullMenuKeys
+      /*let menus = Utils.getLocal2Json('SYS_CONFIG_MENU') || fullMenuKeys
       G.set('SYS_MENUS', menus)
       G.trigger('SYS_MENU_UPDATE')
       if (!isAuthPage(this.$route.name)) {
         this.$router.replace({ name: 'PermissionError' })
-      }
+      }*/
     }
   },
   computed: {
