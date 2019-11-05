@@ -92,6 +92,13 @@
       },
       trigger(data) {
         if (data.children.length > 0) return
+        if (data.value.href) {
+          window.open(data.value.href)
+          this.$nextTick(() => {
+            this.menuSelect()
+          })
+          return
+        }
         this.$router.push({ name: data.key })
       },
       hideMenu() {
@@ -105,7 +112,8 @@
               menus.push({
                 title: val.meta.title,
                 key: val.name,
-                icon: val.meta.icon
+                icon: val.meta.icon,
+                href: val.url
               })
             } else {
               menus.push({

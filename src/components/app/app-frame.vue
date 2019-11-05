@@ -102,12 +102,12 @@ export default {
       //     this.menuSelect();
       //   }
       // });
-      /*let menus = Utils.getLocal2Json('SYS_CONFIG_MENU') || fullMenuKeys
+      /* let menus = Utils.getLocal2Json('SYS_CONFIG_MENU') || fullMenuKeys
       G.set('SYS_MENUS', menus)
       G.trigger('SYS_MENU_UPDATE')
       if (!isAuthPage(this.$route.name)) {
         this.$router.replace({ name: 'PermissionError' })
-      }*/
+      } */
     }
   },
   computed: {

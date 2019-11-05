@@ -140,6 +140,12 @@ Mock.mock('/api/user/getMenus', 'post', {
         name: 'test2',
         component: 'test/test2',
         meta: { title: '测试2', visible: 1, icon: 'h-icon-star' }
+      },
+      {
+        path: 'http://www.baidu.com',
+        name: 'test3',
+        url: 'http://www.baidu.com',
+        meta: { title: '百度', visible: 1, icon: 'h-icon-star' }
       }
     ]
   }]
