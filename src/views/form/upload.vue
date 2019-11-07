@@ -1,44 +1,14 @@
 <template>
   <div id="app">
-    <file-pond
-      name="test"
-      ref="pond"
-      label-idle="上传文件"
-      labelFileProcessing="上传中..."
-      labelFileProcessingComplete="上传完成"
-      labelFileProcessingAborted="上传取消"
-      v-bind:allow-multiple="true"
-      accepted-file-types="image/jpeg, image/png"
-      server="/api"
-      v-bind:files="myFiles"
-      v-on:init="handleFilePondInit"/>
+    <uploader></uploader>
   </div>
 </template>
-
 <script>
-  // Import Vue FilePond
-  import vueFilePond from 'vue-filepond'
-
-  // Import FilePond styles
-  import 'filepond/dist/filepond.min.css'
-
-  // Import FilePond plugins
-  // Please note that you need to install these plugins separately
-
-  // Import image preview plugin styles
-  import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css'
-
-  // Import image preview and file type validation plugins
-  import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type'
-  import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
-
-  // Create component
-  const FilePond = vueFilePond(FilePondPluginFileValidateType, FilePondPluginImagePreview)
-
+  import uploader from 'components/common/uploader'
   export default {
     name: 'app',
     components: {
-      FilePond
+      uploader
     },
     data() {
       return { myFiles: [] }
@@ -46,7 +16,6 @@
     methods: {
       handleFilePondInit: function () {
         console.log('FilePond has initialized')
-
         // FilePond instance methods are available on `this.$refs.pond`
       }
     }
