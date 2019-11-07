@@ -125,6 +125,24 @@ Mock.mock('/api/user/getMenus', 'post', {
       }
     ]
   }, {
+    path: '/Form',
+    name: 'form',
+    meta: { title: '表单应用', visible: 1, icon: 'icon-grid-2' },
+    children: [
+      {
+        path: '/form/basic',
+        name: '/form/basic',
+        component: 'form/basic',
+        meta: { title: '基础表单', visible: 1, icon: 'h-icon-search' }
+      },
+      {
+        path: '/form/upload',
+        name: '/form/upload',
+        component: 'form/upload',
+        meta: { title: '上传表单', visible: 1, icon: 'h-icon-search' }
+      }
+    ]
+  }, {
     path: '/test',
     name: 'test',
     meta: { title: '测试', visible: 1 },

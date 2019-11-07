@@ -1,5 +1,5 @@
 import Ajax from './ajax'
-import user from './requests/user'
+import user from '../requests/user'
 
 const Request = {
   User: {

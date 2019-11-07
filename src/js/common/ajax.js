@@ -29,7 +29,6 @@ let ajax = {
       method: 'GET'
     }
     if (param) {
-      ;
       params.params = param
     }
     return this.ajax(params, extendParam)

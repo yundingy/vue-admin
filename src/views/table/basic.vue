@@ -1,29 +1,32 @@
 <template>
-  <div>
-    <p><SwitchList v-model="mode" small :datas="{'checkbox': '多选', 'rowSelect': '单选'}"></SwitchList></p>
-    <p v-if="mode=='rowSelect'">
-      <h-switch v-model="useRadio" small>使用Radio / Use radio</h-switch>
-      <Button size="s" @click="setRowSelect">选中第一行 / Select the first line</Button>
-      <Button size="s" @click="reset">清空选择 / Clear</Button>
-    </p>
-    <p v-else>
-      <Button size="s" @click="invereSelection">反向选择 / Inverse selection</Button>
-      <Button size="s" @click="setOddSelection">选择奇数列 / Select odd columns</Button>
-      <Button size="s" @click="reset">清空选择 / Clear</Button>
-    </p>
-    <Table :datas="datas" ref="table" :height="400" @select="onselect" :checkbox="mode=='checkbox'" :selectRow="mode=='rowSelect'" :radio="mode=='rowSelect' && useRadio" selectWhenClickTr>
-      <TableItem title="ID" prop="id" align="center" :width="80" fixed="left"></TableItem>
-      <TableItem title="age" prop="age" :width="150"></TableItem>
-      <TableItem title="address" prop="address" align="center" :width="150"></TableItem>
-      <TableItem title="name" prop="name" :width="150"></TableItem>
-      <TableItem title="age" prop="age" :width="150"></TableItem>
-      <TableItem title="address" prop="address" align="center" :width="150"></TableItem>
-      <TableItem title="name" prop="name" :width="150"></TableItem>
-      <TableItem title="age" prop="age" :width="150"></TableItem>
-      <TableItem title="address" prop="address" align="center" :width="150"></TableItem>
-      <TableItem title="operating" align="center" :width="80" fixed="right"><template slot-scope="{data}"><button class="h-btn h-btn-s h-btn-red" @click="remove(datas, data)"><i class="h-icon-trash"></i></button></template></TableItem>
-      <div slot="empty">Custom reminder: no data at this time</div>
-    </Table>
+  <div class="frame-page h-panel">
+    <div class="h-panel-bar"><span class="h-panel-title">基础表格</span></div>
+    <div class="h-panel-bar">
+      <p><SwitchList v-model="mode" small :datas="{'checkbox': '多选', 'rowSelect': '单选'}"></SwitchList></p>
+      <p v-if="mode=='rowSelect'">
+        <h-switch v-model="useRadio" small>使用Radio / Use radio</h-switch>
+        <Button size="s" @click="setRowSelect">选中第一行 / Select the first line</Button>
+        <Button size="s" @click="reset">清空选择 / Clear</Button>
+      </p>
+      <p v-else>
+        <Button size="s" @click="invereSelection">反向选择 / Inverse selection</Button>
+        <Button size="s" @click="setOddSelection">选择奇数列 / Select odd columns</Button>
+        <Button size="s" @click="reset">清空选择 / Clear</Button>
+      </p>
+      <Table :datas="datas" ref="table" :height="400" @select="onselect" :checkbox="mode=='checkbox'" :selectRow="mode=='rowSelect'" :radio="mode=='rowSelect' && useRadio" selectWhenClickTr>
+        <TableItem title="ID" prop="id" align="center" :width="80" fixed="left"></TableItem>
+        <TableItem title="age" prop="age" :width="150"></TableItem>
+        <TableItem title="address" prop="address" align="center" :width="150"></TableItem>
+        <TableItem title="name" prop="name" :width="150"></TableItem>
+        <TableItem title="age" prop="age" :width="150"></TableItem>
+        <TableItem title="address" prop="address" align="center" :width="150"></TableItem>
+        <TableItem title="name" prop="name" :width="150"></TableItem>
+        <TableItem title="age" prop="age" :width="150"></TableItem>
+        <TableItem title="address" prop="address" align="center" :width="150"></TableItem>
+        <TableItem title="operating" align="center" :width="80" fixed="right"><template slot-scope="{data}"><button class="h-btn h-btn-s h-btn-red" @click="remove(datas, data)"><i class="h-icon-trash"></i></button></template></TableItem>
+        <div slot="empty">Custom reminder: no data at this time</div>
+      </Table>
+    </div>
   </div>
 </template>
 
