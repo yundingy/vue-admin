@@ -1,37 +1,54 @@
 <template>
-  <div class="frame-page h-panel">
-    <div class="h-panel-bar"><span class="h-panel-title">上传表单</span></div>
-    <div class="h-panel-bar">
-      <uploader @fileclick="fileclick" :type="type" :files="value" :dataType="dataType" :uploadList="uploadList"
-                ref="uploader" :dragdrop="dragdrop" @deletefile="deletefile">
-      </uploader>
-    </div>
+  <div id="app">
+    <file-pond
+      name="test"
+      ref="pond"
+      label-idle="上传文件"
+      labelFileProcessing="上传中..."
+      labelFileProcessingComplete="上传完成"
+      labelFileProcessingAborted="上传取消"
+      v-bind:allow-multiple="true"
+      accepted-file-types="image/jpeg, image/png"
+      server="/api"
+      v-bind:files="myFiles"
+      v-on:init="handleFilePondInit"/>
   </div>
 </template>
 
 <script>
+  // Import Vue FilePond
+  import vueFilePond from 'vue-filepond'
+
+  // Import FilePond styles
+  import 'filepond/dist/filepond.min.css'
+
+  // Import FilePond plugins
+  // Please note that you need to install these plugins separately
+
+  // Import image preview plugin styles
+  import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css'
+
+  // Import image preview and file type validation plugins
+  import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type'
+  import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
+
+  // Create component
+  const FilePond = vueFilePond(FilePondPluginFileValidateType, FilePondPluginImagePreview)
+
   export default {
-    name: 'upload',
+    name: 'app',
+    components: {
+      FilePond
+    },
     data() {
-      return {
-        type: 'images',
-        value: [],
-        dataType: 'file',
-        uploadList: [],
-        dragdrop: false
-      }
+      return { myFiles: [] }
     },
     methods: {
-      fileclick() {
-        alert()
-      },
-      deletefile() {
+      handleFilePondInit: function () {
+        console.log('FilePond has initialized')
 
+        // FilePond instance methods are available on `this.$refs.pond`
       }
     }
   }
 </script>
-
-<style scoped>
-
-</style>
