@@ -2938,6 +2938,11 @@ dotenv@^7.0.0:
   resolved "https://registry.npm.taobao.org/dotenv/download/dotenv-7.0.0.tgz#a2be3cd52736673206e8a85fb5210eea29628e7c"
   integrity sha1-or481Sc2ZzIG6KhftSEO6ilijnw=
 
+dropzone@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.npm.taobao.org/dropzone/download/dropzone-4.3.0.tgz#48b0b8f2ad092872e4b535b672a7c3f1a1d67c91"
+  integrity sha1-SLC48q0JKHLktTW2cqfD8aHWfJE=
+
 duplexer@^0.1.1:
   version "0.1.1"
   resolved "https://registry.npm.taobao.org/duplexer/download/duplexer-0.1.1.tgz#ace6ff808c1ce66b57d1ebf97977acb02334cfc1"
@@ -5124,6 +5129,11 @@ locate-path@^5.0.0:
   integrity sha1-Gvujlq/WdqbUJQTQpno6frn2KqA=
   dependencies:
     p-locate "^4.1.0"
+
+lodash.clone@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.npm.taobao.org/lodash.clone/download/lodash.clone-4.5.0.tgz#195870450f5a13192478df4bc3d23d2dea1907b6"
+  integrity sha1-GVhwRQ9aExkkeN9Lw9I9LeoZB7Y=
 
 lodash.debounce@^4.0.8:
   version "4.0.8"
@@ -8350,6 +8360,14 @@ vm-browserify@^1.0.1:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/vm-browserify/download/vm-browserify-1.1.0.tgz#bd76d6a23323e2ca8ffa12028dc04559c75f9019"
   integrity sha1-vXbWojMj4sqP+hICjcBFWcdfkBk=
+
+vue-clip@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/vue-clip/download/vue-clip-1.0.0.tgz#c28399ea4ca4957a391086584d50548a74340980"
+  integrity sha1-woOZ6kyklXo5EIZYTVBUinQ0CYA=
+  dependencies:
+    dropzone "^4.3.0"
+    lodash.clone "^4.5.0"
 
 vue-eslint-parser@^2.0.3:
   version "2.0.3"

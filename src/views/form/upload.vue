@@ -1,17 +1,20 @@
 <template>
-  <div id="app">
-    <uploader></uploader>
+  <div>
+    <vue-clip></vue-clip>
   </div>
 </template>
 <script>
-  import uploader from 'components/common/uploader'
+  import VueClip from 'vue-clip'
   export default {
     name: 'app',
     components: {
-      uploader
+      VueClip
     },
     data() {
-      return { myFiles: [] }
+      return {
+        uploadList: [],
+        files: []
+      }
     },
     methods: {
       handleFilePondInit: function () {
