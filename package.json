@@ -37,8 +37,8 @@
     "qs": "^6.4.0",
     "regenerator-runtime": "^0.13.2",
     "vue": "^2.6.10",
-    "vue-clip": "^1.0.0",
     "vue-router": "^2.5.3",
+    "vue-upload-component": "^2.8.20",
     "vuex": "^2.3.1",
     "wangeditor": "^3.1.1"
   },

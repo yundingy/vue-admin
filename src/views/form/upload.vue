@@ -1,26 +1,18 @@
 <template>
   <div>
-    <vue-clip></vue-clip>
+    asdasd
   </div>
 </template>
 <script>
-  import VueClip from 'vue-clip'
   export default {
-    name: 'app',
-    components: {
-      VueClip
-    },
     data() {
       return {
-        uploadList: [],
-        files: []
-      }
-    },
-    methods: {
-      handleFilePondInit: function () {
-        console.log('FilePond has initialized')
-        // FilePond instance methods are available on `this.$refs.pond`
+        options: {
+          url: '/upload',
+          paramName: 'file'
+        }
       }
     }
+
   }
 </script>
