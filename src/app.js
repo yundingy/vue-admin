@@ -7,6 +7,7 @@ import App from 'components/App'
 import heyuiConfig from 'js/config/heyui-config'
 import routerConfig from 'js/config/router-config'
 import store from 'js/vuex/store'
+import vUploader from 'v-uploader'
 import 'js/vue/components'
 import 'js/vue/filters'
 
@@ -23,6 +24,7 @@ require('./mock/index')
 
 heyuiConfig()
 Vue.use(HeyUI)
+Vue.use(vUploader)
 
 const router = routerConfig()
 

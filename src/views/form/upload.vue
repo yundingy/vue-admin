@@ -1,18 +1,23 @@
 <template>
   <div>
-    asdasd
+    <v-uploader @done="uploadDone"></v-uploader>
+    aa
   </div>
 </template>
+
 <script>
   export default {
-    data() {
-      return {
-        options: {
-          url: '/upload',
-          paramName: 'file'
+    name: 'uploader',
+    methods: {
+      uploadDone(files) {
+        if (files && Array.isArray(files) && files.length) {
+          console.log(files)
         }
       }
     }
-
   }
 </script>
+
+<style scoped>
+
+</style>
