@@ -11,6 +11,9 @@ import vUploader from 'v-uploader'
 import 'js/vue/components'
 import 'js/vue/filters'
 
+import HappyScroll from 'vue-happy-scroll'
+import 'vue-happy-scroll/docs/happy-scroll.css'
+
 require('./css/app.less')
 
 // 开发环境判断
@@ -25,6 +28,7 @@ require('./mock/index')
 heyuiConfig()
 Vue.use(HeyUI)
 Vue.use(vUploader)
+Vue.use(HappyScroll)
 
 const router = routerConfig()
 

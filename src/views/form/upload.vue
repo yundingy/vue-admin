@@ -1,18 +1,20 @@
 <template>
   <div>
-    <v-uploader @done="uploadDone"></v-uploader>
-    aa
+    <Uploader type="files" dataType="url" :files="images" @click="alert()"></Uploader>
   </div>
 </template>
 
 <script>
   export default {
     name: 'uploader',
+    data() {
+      return {
+        images: []
+      }
+    },
     methods: {
-      uploadDone(files) {
-        if (files && Array.isArray(files) && files.length) {
-          console.log(files)
-        }
+      fileClick(e) {
+        console.log(e)
       }
     }
   }
